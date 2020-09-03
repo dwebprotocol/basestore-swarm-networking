@@ -1,8 +1,8 @@
 const test = require('tape')
 const ram = require('random-access-memory')
-const dht = require('@hyperswarm/dht')
-const HypercoreProtocol = require('hypercore-protocol')
-const Corestore = require('corestore')
+const dht = require('@dwebswarm/dht')
+const HypercoreProtocol = require('ddatabase-protocol')
+const DWebstore = require('dwebstore')
 
 const SwarmNetworker = require('..')
 
@@ -130,7 +130,7 @@ test('can replication with a custom keypair', async t => {
   t.end()
 })
 
-test.skip('each corestore only opens one connection per peer', async t => {
+test.skip('each dwebstore only opens one connection per peer', async t => {
   t.end()
 })
 
@@ -144,7 +144,7 @@ async function create (opts = {}) {
       return bootstrap.once('listening', resolve)
     })
   }
-  const store =  new Corestore(ram)
+  const store =  new DWebstore(ram)
   await store.ready()
   const networker = new SwarmNetworker(store,  { ...opts, bootstrap: `localhost:${BOOTSTRAP_PORT}` })
   return { store, networker }

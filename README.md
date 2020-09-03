@@ -1,24 +1,24 @@
-# corestore-swarm-networking
-[![Build Status](https://travis-ci.com/andrewosh/corestore-swarm-networking.svg?branch=master)](https://travis-ci.com/andrewosh/corestore-swarm-networking)
+# dwebstore-swarm-networking
+[![Build Status](https://travis-ci.com/andrewosh/dwebstore-swarm-networking.svg?branch=master)](https://travis-ci.com/andrewosh/dwebstore-swarm-networking)
 
-A corestore networking module that uses [hyperswarm](https://github.com/hyperswarm/network) to discovery peers. This module powers the networking portion of the [Hyperdrive daemon](https://github.com/andrewosh/hyperdrive-daemon).
+A dwebstore networking module that uses [dwebswarm](https://github.com/dwebswarm/network) to discovery peers. This module powers the networking portion of the [DDrive daemon](https://github.com/andrewosh/ddrive-daemon).
 
-Calls to `seed` or `unseed` will not be persisted across restarts, so you'll need to use a separate database that maps discovery keys to network configurations. The Hyperdrive daemon uses [Level](https://github.com/level/level) for this.
+Calls to `seed` or `unseed` will not be persisted across restarts, so you'll need to use a separate database that maps discovery keys to network configurations. The DDrive daemon uses [Level](https://github.com/level/level) for this.
 
-Since corestore has an all-to-all replication model (any shared cores between two peers will be automatically replicated), only one connection needs to be maintained per peer. If multiple connections are opened to a single peer as a result of that peer announcing many keys, then these connections will be automatically deduplicated by comparing NOISE keypairs.
+Since dwebstore has an all-to-all replication model (any shared cores between two peers will be automatically replicated), only one connection needs to be maintained per peer. If multiple connections are opened to a single peer as a result of that peer announcing many keys, then these connections will be automatically deduplicated by comparing NOISE keypairs.
 
 ### Installation
 ```
-npm i corestore-swarm-networking -g
+npm i dwebstore-swarm-networking -g
 ```
 
 ### Usage
 ```js
-const SwarmNetworker = require('corestore-swarm-networking')
-const Corestore = require('corestore')
+const SwarmNetworker = require('dwebstore-swarm-networking')
+const DWebstore = require('dwebstore')
 const ram = require('random-access-memory')
 
-const store = new Corestore(ram)
+const store = new DWebstore(ram)
 await store.ready()
 
 const networker = new SwarmNetworker(store)
@@ -35,10 +35,10 @@ await networker.close()
 
 ### API
 
-#### `const networker = new SwarmNetworker(corestore, networkingOptions = {})`
-Creates a new SwarmNetworker that will open replication streams on the `corestore` instance argument.
+#### `const networker = new SwarmNetworker(dwebstore, networkingOptions = {})`
+Creates a new SwarmNetworker that will open replication streams on the `dwebstore` instance argument.
 
-`networkOpts` is an options map that can include all [hyperswarm](https://github.com/hyperswarm/hyperswarm) options (which will be passed to the internal swarm instance) as well as:
+`networkOpts` is an options map that can include all [dwebswarm](https://github.com/dwebswarm/dwebswarm) options (which will be passed to the internal swarm instance) as well as:
 ```js
 {
   id: crypto.randomBytes(32), // A randomly-generated peer ID,
