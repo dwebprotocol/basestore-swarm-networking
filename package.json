@@ -1,0 +1,37 @@
+{
+  "name": "dwebstore-swarm-networking",
+  "version": "1.0.1",
+  "description": "A dwebstore networker based on dwebswarm ",
+  "main": "index.js",
+  "dependencies": {
+    "dwebx-encoding": "git://github.com/DistributedWeb/dwebx-encoding.git#adbab1965b1152c3a7252ca01807e9744c713398",
+    "debug": "^4.1.1",
+    "end-of-stream": "^1.4.4",
+    "ddatabase-protocol": "git://github.com/DistributedWeb/ddatabase-protocol.git#576cb2b9d53290477ef172c43af030cfa2880e03",
+    "dwebswarm": "git://github.com/DistributedWeb/dwebswarm.git#6b8cf276efdb00e6986f3e4ebdd83e3aa5e5617f",
+    "pump": "^3.0.0"
+  },
+  "devDependencies": {
+    "dwebstore": "git://github.com/DistributedWeb/dwebstore.git#03772a70db1a813fab16825366b97530a843c4c7",
+    "random-access-memory": "^3.1.1",
+    "standard": "^12.0.1",
+    "tape": "^4.9.0"
+  },
+  "scripts": {
+    "test": "tape test/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andrewosh/dwebstore-swarm-networking.git"
+  },
+  "keywords": [
+    "dwebstore",
+    "dwebswarm"
+  ],
+  "author": "Andrew Osheroff <andrewosh@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/andrewosh/dwebstore-swarm-networking/issues"
+  },
+  "homepage": "https://github.com/andrewosh/dwebstore-swarm-networking#readme"
+}
