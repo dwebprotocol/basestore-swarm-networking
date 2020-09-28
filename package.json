@@ -4,15 +4,15 @@
   "description": "A dwebstore networker based on dwebswarm ",
   "main": "index.js",
   "dependencies": {
-    "dwebx-encoding": "^5.0.1",
+    "dwebx-encoding": "git://github.com/DistributedWeb/dwebx-encoding.git#adbab1965b1152c3a7252ca01807e9744c713398",
     "debug": "^4.1.1",
     "end-of-stream": "^1.4.4",
-    "ddwebxabase-protocol": "^8.0.0",
-    "dwebswarm": "^2.10.0",
+    "ddatabase-protocol": "git://github.com/DistributedWeb/ddatabase-protocol.git#c8fc78683af50435c5c8c995d55a77c1b52cb127",
+    "dwebswarm": "git://github.com/DistributedWeb/dwebswarm.git#3997f2a133b674571f2ddd4476b199768818f590",
     "pump": "^3.0.0"
   },
   "devDependencies": {
-    "dwebstore": "^5.0.0",
+    "dwebstore": "git://github.com/DistributedWeb/dwebstore.git#07dcea14f69926a77eac535e2a5f05b2676c80ae",
     "random-access-memory": "^3.1.1",
     "standard": "^12.0.1",
     "tape": "^4.9.0"

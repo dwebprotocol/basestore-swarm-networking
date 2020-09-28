@@ -1,8 +1,8 @@
 const test = require('tape')
 const ram = require('random-access-memory')
 const dht = require('@dwebswarm/dht')
-const ddwebxabaseCrypto = require('ddwebxabase-crypto')
-const ddwebxabaseProtocol = require('ddwebxabase-protocol')
+const ddatabaseCrypto = require('ddatabase-crypto')
+const ddatabaseProtocol = require('ddatabase-protocol')
 const dwebstore = require('dwebstore')
 
 const SwarmNetworker = require('..')
@@ -101,8 +101,8 @@ test('replicate sub-cores', async t => {
 })
 
 test('can replication with a custom keypair', async t => {
-  const keyPair1 = ddwebxabaseProtocol.keyPair()
-  const keyPair2 = ddwebxabaseProtocol.keyPair()
+  const keyPair1 = ddatabaseProtocol.keyPair()
+  const keyPair2 = ddatabaseProtocol.keyPair()
   const { store: store1, networker: networker1 } = await create({ keyPair: keyPair1 })
   const { store: store2, networker: networker2 } = await create({ keyPair: keyPair2 })
 

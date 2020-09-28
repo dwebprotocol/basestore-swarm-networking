@@ -3,7 +3,7 @@ const { EventEmitter } = require('events')
 const { promisify } = require('util')
 
 const dwebxEncoding = require('dwebx-encoding')
-const ddwebxabaseProtocol = require('ddwebxabase-protocol')
+const ddatabaseProtocol = require('ddatabase-protocol')
 const dwebswarm = require('dwebswarm')
 const pump = require('pump')
 const eos = require('end-of-stream')
@@ -18,7 +18,7 @@ class SwarmNetworker extends EventEmitter {
     this.dwebstore = dwebstore
     this.id = opts.id || crypto.randomBytes(32)
     this.opts = opts
-    this.keyPair = opts.keyPair || ddwebxabaseProtocol.keyPair()
+    this.keyPair = opts.keyPair || ddatabaseProtocol.keyPair()
 
     this._replicationOpts = {
       id: this.id,
@@ -66,7 +66,7 @@ class SwarmNetworker extends EventEmitter {
       var finishedHandshake = false
       var processed = false
 
-      const protocolStream = new ddwebxabaseProtocol(isInitiator, { ...this._replicationOpts })
+      const protocolStream = new ddatabaseProtocol(isInitiator, { ...this._replicationOpts })
       protocolStream.on('handshake', () => {
         const deduped = info.deduplicate(protocolStream.publicKey, protocolStream.remotePublicKey)
         if (!deduped) onhandshake()

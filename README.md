@@ -42,7 +42,7 @@ Creates a new SwarmNetworker that will open replication streams on the `dwebstor
 ```js
 {
   id: crypto.randomBytes(32), // A randomly-generated peer ID,
-  keyPair: ddwebxabaseProtocol.keyPair(), // A NOISE keypair that's used across all connections.
+  keyPair: ddatabaseProtocol.keyPair(), // A NOISE keypair that's used across all connections.
 }
 ```
 
