@@ -8,7 +8,7 @@
     "debug": "^4.1.1",
     "end-of-stream": "^1.4.4",
     "ddatabase-protocol": "git://github.com/DistributedWeb/ddatabase-protocol.git#c8fc78683af50435c5c8c995d55a77c1b52cb127",
-    "dwebswarm": "git://github.com/DistributedWeb/dwebswarm.git#3997f2a133b674571f2ddd4476b199768818f590",
+    "dwebswarm": "git://github.com/DistributedWeb/dwebswarm.git#3aa3719e7b26a5927055ba49ef8f29d390b77a70",
     "pump": "^3.0.0"
   },
   "devDependencies": {
