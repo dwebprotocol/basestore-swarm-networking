@@ -1,7 +1,7 @@
 # dwebstore-swarm-networking
-[![Build Status](https://travis-ci.com/andrewosh/dwebstore-swarm-networking.svg?branch=master)](https://travis-ci.com/andrewosh/dwebstore-swarm-networking)
+[![Build Status](https://travis-ci.com/distributedweb/dwebstore-swarm-networking.svg?branch=master)](https://travis-ci.com/distributedweb/dwebstore-swarm-networking)
 
-A dwebstore networking module that uses [dwebswarm](https://github.com/dwebswarm/network) to discovery peers. This module powers the networking portion of the [patriotsve daemon](https://github.com/andrewosh/patriotsve-daemon).
+A dwebstore networking module that uses [dwebswarm](https://github.com/dwebswarm/network) to discovery peers. This module powers the networking portion of the [patriotsve daemon](https://github.com/distributedweb/patriotsve-daemon).
 
 Calls to `seed` or `unseed` will not be persisted across restarts, so you'll need to use a separate dwebxabase that maps discovery keys to network configurations. The patriotsve daemon uses [Level](https://github.com/level/level) for this.
 
