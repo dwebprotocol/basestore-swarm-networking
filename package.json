@@ -1,7 +1,7 @@
 {
   "name": "dwebstore-swarm-networking",
   "version": "2.0.0",
-  "description": "A dwebstore networker based on dwebswarm ",
+  "description": "dWebStore networking module that uses dWebSwarm to discover peers.",
   "main": "index.js",
   "dependencies": {
     "dwebx-encoding": "git://github.com/DistributedWeb/dwebx-encoding.git#adbab1965b1152c3a7252ca01807e9744c713398",
@@ -22,16 +22,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/andrewosh/dwebstore-swarm-networking.git"
+    "url": "git+https://github.com/DistributedWeb/dwebstore-swarm-networking.git"
   },
   "keywords": [
     "dwebstore",
     "dwebswarm"
   ],
-  "author": "Andrew Osheroff <andrewosh@gmail.com>",
+  "author": "Peeps Labs <peepslabs@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/andrewosh/dwebstore-swarm-networking/issues"
+    "url": "https://github.com/DistributedWeb/dwebstore-swarm-networking/issues"
   },
-  "homepage": "https://github.com/andrewosh/dwebstore-swarm-networking#readme"
+  "homepage": "https://github.com/DistributedWeb/dwebstore-swarm-networking#readme"
 }
