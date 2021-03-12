@@ -1,6 +1,6 @@
 {
   "name": "basestore-swarm-networking",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "basestore networking module that uses dswarm to discover peers.",
   "main": "index.js",
   "dependencies": {
