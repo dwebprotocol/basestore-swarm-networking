@@ -1,24 +1,24 @@
-# dwebstore-swarm-networking
-[![Build Status](https://travis-ci.com/distributedweb/dwebstore-swarm-networking.svg?branch=master)](https://travis-ci.com/distributedweb/dwebstore-swarm-networking)
+# basestore-swarm-networking
+[![Build Status](https://travis-ci.com/dwebprotocol/basestore-swarm-networking.svg?branch=master)](https://travis-ci.com/dwebprotocol/basestore-swarm-networking)
 
-A dwebstore networking module that uses [dwebswarm](https://github.com/distributedweb/dwebswarm) to discovery peers. This module powers the networking portion of the [dDrive daemon](https://github.com/distributedweb/ddrive-daemon).
+A basestore networking module that uses [dswarm](https://github.com/dwebprotocol/dswarm) to discovery peers. This module powers the networking portion of the [dDrive daemon](https://github.com/dwebprotocol/ddrive-daemon).
 
 Calls to `seed` or `unseed` will not be persisted across restarts, so you'll need to use a separate dDatabase that maps discovery keys to network configurations. The dDrive daemon uses [Level](https://github.com/level/level) for this.
 
-Since dwebstore has an all-to-all replication model (any shared cores between two peers will be automatically replicated), only one connection needs to be maintained per peer. If multiple connections are opened to a single peer as a result of that peer announcing many keys, then these connections will be automatically deduplicated by comparing NOISE keypairs.
+Since basestore has an all-to-all replication model (any shared cores between two peers will be automatically replicated), only one connection needs to be maintained per peer. If multiple connections are opened to a single peer as a result of that peer announcing many keys, then these connections will be automatically deduplicated by comparing NOISE keypairs.
 
 ### Installation
 ```
-npm i dwebstore-swarm-networking -g
+npm i basestore-swarm-networking -g
 ```
 
 ### Usage
 ```js
-const SwarmNetworker = require('dwebstore-swarm-networking')
-const dwebstore = require('dwebstore')
+const SwarmNetworker = require('basestore-swarm-networking')
+const basestore = require('basestorex')
 const ram = require('random-access-memory')
 
-const store = new dwebstore(ram)
+const store = new basestore(ram)
 await store.ready()
 
 const networker = new SwarmNetworker(store)
@@ -35,10 +35,10 @@ await networker.close()
 
 ### API
 
-#### `const networker = new SwarmNetworker(dwebstore, networkingOptions = {})`
-Creates a new SwarmNetworker that will open replication streams on the `dwebstore` instance argument.
+#### `const networker = new SwarmNetworker(basestore, networkingOptions = {})`
+Creates a new SwarmNetworker that will open replication streams on the `basestore` instance argument.
 
-`networkOpts` is an options map that can include all [dwebswarm](https://github.com/distributedweb/dwebswarm) options (which will be passed to the internal swarm instance) as well as:
+`networkOpts` is an options map that can include all [dswarm](https://github.com/dwebprotocol/dswarm) options (which will be passed to the internal swarm instance) as well as:
 ```js
 {
   id: crypto.randomBytes(32), // A randomly-generated peer ID,

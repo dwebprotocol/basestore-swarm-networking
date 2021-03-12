@@ -1,18 +1,18 @@
 {
-  "name": "dwebstore-swarm-networking",
-  "version": "2.0.0",
-  "description": "dWebStore networking module that uses dWebSwarm to discover peers.",
+  "name": "basestore-swarm-networking",
+  "version": "1.0.0",
+  "description": "basestore networking module that uses dswarm to discover peers.",
   "main": "index.js",
   "dependencies": {
-    "dwebx-encoding": "git://github.com/DistributedWeb/dwebx-encoding.git#adbab1965b1152c3a7252ca01807e9744c713398",
+    "dwebx-encoding": "^1.0.0",
     "debug": "^4.1.1",
     "end-of-stream": "^1.4.4",
-    "ddatabase-protocol": "git://github.com/DistributedWeb/ddatabase-protocol.git#c8fc78683af50435c5c8c995d55a77c1b52cb127",
-    "dwebswarm": "git://github.com/DistributedWeb/dwebswarm.git#3aa3719e7b26a5927055ba49ef8f29d390b77a70",
+    "@ddatabase/protocol": "^1.0.0",
+    "dswarm": "^1.0.0",
     "pump": "^3.0.0"
   },
   "devDependencies": {
-    "dwebstore": "git://github.com/DistributedWeb/dwebstore.git#07dcea14f69926a77eac535e2a5f05b2676c80ae",
+    "basestorex": "^1.0.0",
     "random-access-memory": "^3.1.1",
     "standard": "^12.0.1",
     "tape": "^4.9.0"
@@ -22,16 +22,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DistributedWeb/dwebstore-swarm-networking.git"
+    "url": "git+https://github.com/dwebprotocol/basestore-swarm-networking.git"
   },
   "keywords": [
-    "dwebstore",
-    "dwebswarm"
+    "basestore",
+    "dswarm"
   ],
   "author": "Peeps Labs <peepslabs@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/DistributedWeb/dwebstore-swarm-networking/issues"
+    "url": "https://github.com/dwebprotocol/basestore-swarm-networking/issues"
   },
-  "homepage": "https://github.com/DistributedWeb/dwebstore-swarm-networking#readme"
+  "homepage": "https://dwebx.org"
 }

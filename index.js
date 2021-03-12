@@ -3,19 +3,19 @@ const { EventEmitter } = require('events')
 const { promisify } = require('util')
 
 const dwebxEncoding = require('dwebx-encoding')
-const ddatabaseProtocol = require('ddatabase-protocol')
-const dwebswarm = require('dwebswarm')
+const ddatabaseProtocol = require('@ddatabase/protocol')
+const dswarm = require('dswarm')
 const pump = require('pump')
 const eos = require('end-of-stream')
 
-const log = require('debug')('dwebstore:network')
+const log = require('debug')('basestore:network')
 
-const OUTER_STREAM = Symbol('dwebstore-outer-stream')
+const OUTER_STREAM = Symbol('basestore-outer-stream')
 
 class SwarmNetworker extends EventEmitter {
-  constructor (dwebstore, opts = {}) {
+  constructor (basestore, opts = {}) {
     super()
-    this.dwebstore = dwebstore
+    this.basestore = basestore
     this.id = opts.id || crypto.randomBytes(32)
     this.opts = opts
     this.keyPair = opts.keyPair || ddatabaseProtocol.keyPair()
@@ -42,7 +42,7 @@ class SwarmNetworker extends EventEmitter {
 
   _replicate (protocolStream) {
     // The initiator parameter here is ignored, since we're passing in a stream.
-    this.dwebstore.replicate(false, {
+    this.basestore.replicate(false, {
       ...this._replicationOpts,
       stream: protocolStream
     })
@@ -52,7 +52,7 @@ class SwarmNetworker extends EventEmitter {
     const self = this
     if (this.swarm) return
 
-    this.swarm = dwebswarm({
+    this.swarm = dswarm({
       ...this.opts,
       announceLocalNetwork: true,
       queue: { multiplex: true }

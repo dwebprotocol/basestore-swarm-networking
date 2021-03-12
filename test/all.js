@@ -1,9 +1,9 @@
 const test = require('tape')
 const ram = require('random-access-memory')
-const dht = require('@dwebswarm/dht')
-const ddatabaseCrypto = require('ddatabase-crypto')
-const ddatabaseProtocol = require('ddatabase-protocol')
-const dwebstore = require('dwebstore')
+const dht = require('@dswarm/dht')
+const ddatabaseCrypto = require('@ddatabase/crypto')
+const ddatabaseProtocol = require('@ddatabase/protocol')
+const basestore = require('basestorex')
 
 const SwarmNetworker = require('..')
 
@@ -184,7 +184,7 @@ test('can destroy multiple times', async t => {
   t.end()
 })
 
-test.skip('each dwebstore only opens one connection per peer', async t => {
+test.skip('each basestore only opens one connection per peer', async t => {
   t.end()
 })
 
@@ -198,7 +198,7 @@ async function create (opts = {}) {
       return bootstrap.once('listening', resolve)
     })
   }
-  const store =  new dwebstore(ram)
+  const store =  new basestore(ram)
   await store.ready()
   const networker = new SwarmNetworker(store,  { ...opts, bootstrap: `localhost:${BOOTSTRAP_PORT}` })
   return { store, networker }
